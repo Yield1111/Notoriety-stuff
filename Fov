@@ -1,0 +1,18 @@
+local TweenService2 = game:GetService("TweenService")
+local camera = game.Workspace.CurrentCamera
+
+local tweenInfo = TweenInfo.new(
+    9999999999999999,
+    Enum.EasingStyle.Linear,
+    Enum.EasingDirection.Out
+)
+
+local tweenGoal = { FieldOfView = 1000 }
+
+local tween = TweenService2:Create(camera, tweenInfo, tweenGoal)
+tween:Play()
+
+tween.Completed:Connect(function()
+    camera.FieldOfView = 120
+
+end)
